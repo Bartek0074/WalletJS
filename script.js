@@ -7,9 +7,9 @@ const deleteAllTransactionBtn = document.querySelector('.delete-all');
 const lightStyleButton = document.querySelector('.light');
 const darkStyleButton = document.querySelector('.dark');
 const addTransactionPanel = document.querySelector('.add-transaction-panel');
-const transactionName = document.querySelector('#name');
-const transactionAmount = document.querySelector('#amount');
-const transactionCategory = document.querySelector('#category');
+const transactionNameInput = document.querySelector('#name');
+const transactionAmountInput = document.querySelector('#amount');
+const transactionCategoryInput = document.querySelector('#category');
 const saveTransactionBtn = document.querySelector('.save');
 const cancelTransactionBtn = document.querySelector('.close');
 
@@ -25,7 +25,23 @@ const showPanel = () => {
 
 const hidePanel = () => {
     addTransactionPanel.style.display = 'none';
+    clearInputs();
+}
+
+const checkForm = () => {
+    if (transactionNameInput.value !== '' && transactionAmountInput.value !== '' && transactionCategoryInput.value !== 'none') {
+        console.log('formularz git')
+    } else {
+        alert('Complete the form!')
+    }
+}
+
+const clearInputs = () => {
+    transactionNameInput.value = '';
+    transactionAmountInput.value = '';
+    transactionCategoryInput.value = 'none';
 }
 
 addTransactionBtn.addEventListener('click', showPanel);
 cancelTransactionBtn.addEventListener('click', hidePanel);
+saveTransactionBtn.addEventListener('click', checkForm);
