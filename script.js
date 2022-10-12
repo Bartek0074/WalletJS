@@ -18,3 +18,14 @@ let ID = 0;
 let categoryIcon;
 let selectedCategory;
 let moneyArr = [0];
+
+const showPanel = () => {
+    addTransactionPanel.style.display = 'flex';
+}
+
+const hidePanel = () => {
+    addTransactionPanel.style.display = 'none';
+}
+
+addTransactionBtn.addEventListener('click', showPanel);
+cancelTransactionBtn.addEventListener('click', hidePanel);
