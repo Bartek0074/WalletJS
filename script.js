@@ -103,6 +103,28 @@ const deleteTransaction = id => {
     transactionToDelete.remove();
 }
 
+const deleteAllTransactions = () => {
+    incomeSection.innerHTML = '<h3>Income:</h3>';
+    expensesSection.innerHTML = '<h3>Expenses:</h3>';
+    moneyArr = [0];
+    changeAvailableMoney();
+}
+
+const changeStyleToLight = () => {
+    root.style.setProperty('--first-color', '#f9f9f9');
+    root.style.setProperty('--second-color', '#14161f');
+    root.style.setProperty('--border-color', 'rgba(0, 0, 0, .2)');
+}
+
+const changeStyleToDark = () => {
+    root.style.setProperty('--first-color', '#14161f');
+    root.style.setProperty('--second-color', '#f9f9f9');
+    root.style.setProperty('--border-color', 'rgba(255, 255, 255, .4)');
+}
+
 addTransactionBtn.addEventListener('click', showPanel);
 cancelTransactionBtn.addEventListener('click', hidePanel);
 saveTransactionBtn.addEventListener('click', checkForm);
+deleteAllTransactionBtn.addEventListener('click', deleteAllTransactions);
+lightStyleButton.addEventListener('click', changeStyleToLight);
+darkStyleButton.addEventListener('click', changeStyleToDark);
