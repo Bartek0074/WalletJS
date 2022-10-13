@@ -60,6 +60,7 @@ const createNewTransaction = () => {
     hidePanel();
     ID++;
     clearInputs();
+    changeAvailableMoney();
 }
 
 const selectCategory = () => {
@@ -81,6 +82,15 @@ const checkCategory = transaction => {
             categoryIcon = '<i class="fas fa-film"></i>';
             break;
     }
+}
+
+const changeAvailableMoney = () => {
+    let sum = 0;
+    for (let i = 0; i < moneyArr.length; i++) {
+        sum += moneyArr[i];
+    }
+    console.log(sum);
+    availableMoney.textContent = `${sum}$`;
 }
 
 addTransactionBtn.addEventListener('click', showPanel);
