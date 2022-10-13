@@ -93,6 +93,16 @@ const changeAvailableMoney = () => {
     availableMoney.textContent = `${sum}$`;
 }
 
+const deleteTransaction = id => {
+    const transactionToDelete = document.getElementById(id);
+    const transactionAmount = parseFloat(transactionToDelete.childNodes[3].textContent.slice(0, -1));
+    
+    moneyArr.splice(moneyArr.indexOf(transactionAmount), 1);
+    changeAvailableMoney();
+
+    transactionToDelete.remove();
+}
+
 addTransactionBtn.addEventListener('click', showPanel);
 cancelTransactionBtn.addEventListener('click', hidePanel);
 saveTransactionBtn.addEventListener('click', checkForm);
